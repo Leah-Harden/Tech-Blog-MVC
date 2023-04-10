@@ -1,4 +1,8 @@
 {
+  "name": "tech-blog-mvc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "dependencies": {
     "connect-session-sequelize": "^7.1.5",
     "dotenv": "^16.0.3",
@@ -7,5 +11,19 @@
     "express-session": "^1.17.3",
     "mysql2": "^3.2.0",
     "sequelize": "^6.31.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leah-Harden/Tech-Blog-MVC.git"
+  },
+  "author": "Leah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leah-Harden/Tech-Blog-MVC/issues"
+  },
+  "homepage": "https://github.com/Leah-Harden/Tech-Blog-MVC#readme"
 }
