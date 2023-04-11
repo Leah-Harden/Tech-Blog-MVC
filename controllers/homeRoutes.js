@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const fetch = require('node-fetch');
 const withAuth = require('../utils/auth');
 const { User } = require('../models');
 
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
             {
                 model: User,
                 username: ['username'],
-                bookProgress: []
             },
         ],
     });
@@ -24,3 +22,5 @@ router.get('/', async (req, res) => {
         console.log(err)
     }
 })
+
+module.exports = router;
