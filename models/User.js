@@ -15,7 +15,7 @@ User.init({
     },
     username: {
         type: DataTypes.STRING,
-        allowNull:false
+        allowNull: false
     },
     password: {
         type: DataTypes.STRING,
@@ -24,7 +24,15 @@ User.init({
             len: [8]
         }
     },
+},
+{
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'User'
+    }
 
-})
+)
 
 module.exports = User;
