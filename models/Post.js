@@ -12,9 +12,12 @@ Post.init({
         primaryKey: true,
         allowNull: false
     },
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false
+    user_id: {
+        type: DataTypes.UUID,
+        references: {
+            model:'User',
+            key:'id'
+        }
     },
     title: {
         type: DataTypes.STRING,

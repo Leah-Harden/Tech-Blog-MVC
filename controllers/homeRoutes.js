@@ -8,10 +8,6 @@ router.get('/', async (req, res) => {
     try {
     const userData = await User.findAll({
         include: [
-            {
-                model: User,
-                username: ['username'],
-            },
         ],
     });
     const users = userData.map((user) => user.get({ plain: true }));
