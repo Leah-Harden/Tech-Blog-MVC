@@ -1,4 +1,5 @@
 
+/* required on everything  */
 :root {
     --light: #D6EAF7;
     --one: #8e8eb8;
@@ -15,10 +16,21 @@
 }
 
 
-
 body {
     background-color: var(--light);
-    text-align: center;
+
+}
+
+/* required on everything  */
+
+/* basic */
+button {
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: var(--sec);
+    border: var(--sec);
+    color: var(--light);
 }
 
 .center {
@@ -30,8 +42,50 @@ body {
     padding: 150px;
 
 }
-hr {
-    border: #A08EB8 2px solid;
+/* basic */
+
+
+/* main  */
+
+.nav {
+    display: flex;
+    background-color: var(--sec);
+    padding: 30px;
+    justify-content:space-between;
+    align-items: center;
+
+}
+
+.navTitle {
+    color: var(--light);
+    background-color: var(--one);
+    font-size: 42px;
+    padding: 15px 40px 15px 40px ;
+    border: solid 7px var(--light);
+}
+
+.navUl{
+    display: flex;
+    justify-content:space-evenly;
+
+}
+
+.navLi {
+    color: var(--light);
+    padding: 10px;
+}
+
+
+/* main */
+
+/* main */
+
+.loginH1 {
+    font-size: 40px;
+}
+
+.loginHr {
+    border:var(--one) 3px solid;
     width: 60%;
 }
 
@@ -57,13 +111,7 @@ input {
     padding: 5px;
     align-items:center;
     width: 25%;
+    
 }
 
-button {
-    height: 40px;
-    width: 150px;
-    border-radius: 10px;
-    background-color: var(--sec);
-    border: var(--sec);
-    color: var(--light);
-}
+/* main */
