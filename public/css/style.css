@@ -1,5 +1,5 @@
 
-/* required on everything  */
+/* --------------- required on everything --------------- */
 :root {
     --light: #D6EAF7;
     --one: #8e8eb8;
@@ -21,9 +21,9 @@ body {
 
 }
 
-/* required on everything  */
+/* --------------- required on everything --------------- */
 
-/* basic */
+/* --------------- basic --------------- */
 button {
     height: 40px;
     width: 150px;
@@ -42,10 +42,10 @@ button {
     padding: 150px;
 
 }
-/* basic */
+/* --------------- basic --------------- */
 
 
-/* main  */
+/* --------------- nav --------------- */
 
 .nav {
     display: flex;
@@ -76,9 +76,9 @@ button {
 }
 
 
-/* main */
+/* --------------- nav --------------- */
 
-/* main */
+/* --------------- main --------------- */
 
 .loginH1 {
     font-size: 40px;
@@ -90,8 +90,10 @@ button {
 }
 
 
-form {
+.loginForm {
     padding: 40px;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -114,4 +116,19 @@ input {
     
 }
 
-/* main */
+/* --------------- main --------------- */
+
+/* --------------- home ---------------*/
+
+.subtitle {
+    margin: 30px;
+    color: var(--one);
+}
+
+.plusBtn {
+    font-size: 30px;
+    background-color: var(--one);
+
+}
+
+/* --------------- home --------------- */
