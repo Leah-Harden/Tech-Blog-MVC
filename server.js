@@ -41,6 +41,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+// buttons -------------
+
+var dashButton = document.getElementById('dashButton');
+dashButton.onclick = function() {
+    location.assign('https://stackoverflow.com/dashboard/');
+};
+
+var homeButton = document.getElementById('homeButton');
+homeButton.onclick = function() {
+    location.assign('https://stackoverflow.com/home/');
+};
+
+var loginButton = document.getElementById('loginButton');
+loginButton.onclick = function() {
+    location.assign('https://stackoverflow.com/login/');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log('Now listening to "localhost:3001"'));
 });
