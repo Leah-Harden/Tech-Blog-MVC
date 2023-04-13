@@ -171,6 +171,14 @@ input {
     background-color: var(--thr);
 }
 
+.postComment {
+    font-size: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: var(--thr);
+    border-top: var(--sec) solid 5px;
+}
+
 .postBtn {
     font-size: 16px;
     margin-top: 10px;

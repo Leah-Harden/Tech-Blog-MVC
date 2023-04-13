@@ -19,4 +19,36 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/dashboard', async (req, res) => {
+    try {
+    const userData = await User.findAll({
+        include: [
+        ],
+    });
+    const users = userData.map((user) => user.get({ plain: true }));
+    res.render('dashboard', { 
+        logged_in: req.session.logged_in 
+    });
+    } catch(err) {
+        console.log(err)
+    }
+});
+
+router.get('/home', async (req, res) => {
+    try {
+    const userData = await User.findAll({
+        include: [
+        ],
+    });
+    const users = userData.map((user) => user.get({ plain: true }));
+    res.render('home', { 
+        logged_in: req.session.logged_in 
+    });
+    } catch(err) {
+        console.log(err)
+    }
+});
+
+
+
 module.exports = router;
