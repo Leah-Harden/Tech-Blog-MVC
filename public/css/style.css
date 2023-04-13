@@ -4,6 +4,7 @@
     --light: #D6EAF7;
     --one: #8e8eb8;
     --sec: #3c3361;
+    --thr: rgb(196, 196, 241);
     --dark: #1b0b2b;
 }
 
@@ -132,3 +133,47 @@ input {
 }
 
 /* --------------- home --------------- */
+/* --------------- dashboard --------------- */
+
+
+.postCenter {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    
+}
+
+
+
+.post {
+    background-color: var(--one);
+    padding: 15px;
+    width: 80%;
+
+}
+
+.postTitle {
+    font-size: 35px;
+    padding: 25px;
+    border: dashed 8px var(--dark);
+    background-color: var(--thr);
+}
+.postUsername{
+    font-size: 20px;
+    color: var(--light);
+    margin: 10px;
+}
+
+.postBody {
+    font-size: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: var(--thr);
+}
+
+.postBtn {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* --------------- dashboard --------------- */
