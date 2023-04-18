@@ -6,10 +6,7 @@ const { User } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
-    const userData = await User.findAll({
-        include: [
-        ],
-    });
+    const userData = await User.findAll();
     const users = userData.map((user) => user.get({ plain: true }));
     res.render('login', { 
         logged_in: req.session.logged_in 

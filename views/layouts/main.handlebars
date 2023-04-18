@@ -15,18 +15,19 @@
 <body>
         <div class="nav">
         <h1 class="navTitle RobotoMono">Techie's Home</h1>
+        <h2 class="navUser RobotoMono">Hello{{user.username}}:</h2>
         <ul class="navUl">
-            <li class="navLi RobotoMono" id="homeButton">
-                Home
+            <li>
+                <a id="loginButton" class="navLi RobotoMono" href="http://localhost:3001/home">Home</a>
             </li>
-            <li class="navLi RobotoMono" id="dashButton">
-                Dashboard
+            <li>
+                <a id="loginButton" class="navLi RobotoMono" href="http://localhost:3001/dashboard">Dashboard</a>
             </li>
-            <li class="navLi RobotoMono" id="loginButton">
-                Login
+            <li>
+                <a id="loginButton" class="navLi RobotoMono" href="http://localhost:3001/">Login</a>
             </li>
-            <li class="navLi RobotoMono">
-                Log out
+            <li>
+                <a id="loginButton" class="navLi RobotoMono" href="">Log out</a>
             </li>
         </ul>
     </div>
