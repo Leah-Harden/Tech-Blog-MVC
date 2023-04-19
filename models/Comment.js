@@ -19,6 +19,13 @@ Comment.init({
             key:'id'
         }
     },
+    Title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [8]
+        }
+    },
     body: {
         type: DataTypes.STRING,
         allowNull: false,

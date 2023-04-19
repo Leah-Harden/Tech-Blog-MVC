@@ -1,10 +1,14 @@
+
+
+
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
 
-    try {
+    if (username && password) {
         const response = await fetch('/login', {
             method: POST,
             body: JSON.stringify({ username, password }),
@@ -15,7 +19,7 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/dashboard')
         }
-    } catch (err) {
+    } else {
         console.log("Error:", err);
     }
 }
@@ -26,7 +30,7 @@ const signUpFormHandler = async (event) => {
     const usernamesignUp = document.querySelector('#username-signUp').value.trim();
     const passwordsignUp = document.querySelector('#password-signUp').value.trim();
 
-    try {
+    if (usernamesignUp && passwordsignUp) {
         const response = await fetch('/login/signup', {
             method: POST,
             body: JSON.stringify({ usernamesignUp, passwordsignUp }),
@@ -41,7 +45,7 @@ const signUpFormHandler = async (event) => {
                 console.log("1 record inserted");
             });
         }
-    } catch (err) {
+    } else {
         console.log("Error:", err);
     }
 }
