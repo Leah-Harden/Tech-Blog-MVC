@@ -19,7 +19,7 @@ Comment.init({
             key:'id'
         }
     },
-    Title: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
