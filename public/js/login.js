@@ -1,6 +1,5 @@
 
-
-
+const sequelize = require('./connection');
 
 const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -41,11 +40,11 @@ const signUpFormHandler = async (event) => {
             }
         })
         if (response.ok) {
-            var sql = `INSERT INTO User (username, password) VALUES (${usernamesignUp}, ${passwordsignUp})`;
-            con.query(sql, function (err, result) {
-                if (err) throw err;
-                console.log("User made!");
-            });
+            // var sql = `INSERT INTO User (username, password) VALUES (${usernamesignUp}, ${passwordsignUp})`;
+            // con.query(sql, function (err, result) {
+            //     if (err) throw err;
+            //     console.log("User made!");
+            // });
         }
     } catch (err) {
         console.log("Error:", err);

@@ -16,6 +16,20 @@ router.post('/comment', async (req, res) => {
         res.status(400).json(err);
     }
 })
+router.post('/login', async (req, res) => {
+    try {
+        const userData = await User.findOne({ where: { username: req.username } })
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.status(200).json(userData)
+        })
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 
 router.post('/signup', async (req, res) => {
     try {
@@ -36,7 +50,6 @@ router.post('/signup', async (req, res) => {
 //fix this logout fuction
 router.post('/logout', async (req, res) => {
     try {
-        const userData = await User.create(req.body)
         req.session.destroy(() => {
             req.session.logged_in
         })
