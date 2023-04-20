@@ -1,5 +1,5 @@
 
-const sequelize = require('./connection');
+//const sequelize = require('./connection');
 
 const loginFormHandler = async (event) => {
     event.preventDefault();
@@ -8,7 +8,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
 
     try {
-        const response = await fetch('/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: {
