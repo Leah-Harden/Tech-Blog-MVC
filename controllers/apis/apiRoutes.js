@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const {User} = require('../models');
-const {Comment} = require('../models');
+const {User} = require('../../models');
+const {Comment} = require('../../models');
 
 router.post('/comment', async (req, res) => {
     try {
@@ -45,3 +45,5 @@ router.post('/logout', async (req, res) => {
         res.status(400).json(err);
     }
 })
+
+module.exports = router;
