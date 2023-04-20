@@ -8,7 +8,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
 
     try {
-        const response = await fetch('/api/login', {
+        const response = await fetch('/apis/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: {
@@ -34,7 +34,7 @@ const signUpFormHandler = async (event) => {
     try {
         const response = await fetch('/api/signup', {
             method: 'POST',
-            body: JSON.stringify({ username:usernamesignUp, password:passwordsignUp }),
+            body: JSON.stringify({ username: usernamesignUp, password: passwordsignUp }),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -44,6 +44,7 @@ const signUpFormHandler = async (event) => {
             // con.query(sql, function (err, result) {
             //     if (err) throw err;
             //     console.log("User made!");
+            
             // });
         }
     } catch (err) {
