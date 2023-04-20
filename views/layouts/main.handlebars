@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./css/reset.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 
     <title>Document</title>
 </head>
+
 <body>
-        <div class="nav">
+    <div class="nav">
         <h1 class="navTitle RobotoMono">Techie's Home</h1>
         <h2 class="navUser RobotoMono">Hello{{user.username}}:</h2>
         <ul class="navUl">
             <li>
-                <a id="homeButton" class="navLi RobotoMono" >Home</a>
+                <a class="navLi RobotoMono" href="/home">Home</a>
             </li>
             <li>
-                <a id="dashButton" class="navLi RobotoMono" >Dashboard</a>
+                <a class="navLi RobotoMono" href="/dashboard">Dashboard</a>
             </li>
             <li>
-                <a id="loginButton" class="navLi RobotoMono" >Login</a>
+                <a class="navLi RobotoMono" href="/">Login</a>
             </li>
             <li>
-                <a id="loginButton" class="navLi RobotoMono" href="">Log out</a>
+                <a class="navLi RobotoMono" href="">Log out</a>
             </li>
         </ul>
     </div>
     {{{body}}}
 </body>
 <script src="./js/script.js"></script>
-<script src ="/js/login.js"></script>
+<script src="/js/login.js"></script>
+
 </html>
