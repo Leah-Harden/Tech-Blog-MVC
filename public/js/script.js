@@ -3,17 +3,17 @@
 
 var dashButton = document.getElementById('dashButton');
 dashButton.onclick = function() {
-    location.assign('https://http://localhost:3001/dashboard/');
-};
+    document.location.replace('/dashboard')
+}
 
 var homeButton = document.getElementById('homeButton');
 homeButton.onclick = function() {
-    location.assign('https://http://localhost:3001/home/');
+    document.location.replace('/home')
 };
 
 var loginButton = document.getElementById('loginButton');
 loginButton.onclick = function() {
-    location.assign('https://http://localhost:3001/login/');
+    document.location.replace('/')
 }
 
 
