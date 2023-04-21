@@ -1,6 +1,7 @@
 
 //const sequelize = require('./connection');
 
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -8,7 +9,7 @@ const loginFormHandler = async (event) => {
     const password = document.querySelector('#password-login').value.trim();
 
     try {
-        const response = await fetch('/apis/login', {
+        const response = await fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: {
@@ -19,6 +20,7 @@ const loginFormHandler = async (event) => {
             document.location.replace('/dashboard')
         }
     } catch (err) {
+
         console.log("Error:", err);
     }
 }
@@ -40,16 +42,14 @@ const signUpFormHandler = async (event) => {
             }
         })
         if (response.ok) {
-            // var sql = `INSERT INTO User (username, password) VALUES (${usernamesignUp}, ${passwordsignUp})`;
-            // con.query(sql, function (err, result) {
-            //     if (err) throw err;
-            //     console.log("User made!");
-            
-            // });
+            document.location.replace('/dashboard')
         }
     } catch (err) {
+
         console.log("Error:", err);
     }
 }
+
+
 document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
 document.querySelector('#signUp-form').addEventListener('submit', signUpFormHandler);
