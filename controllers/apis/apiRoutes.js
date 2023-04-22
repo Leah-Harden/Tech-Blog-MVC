@@ -20,7 +20,7 @@ router.post('/comment', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { username: username } })
+        const userData = await User.findOne({ where: { username: req.body.username } })
 
         req.session.reload(() => {
             req.session.user_id = userData.id;
@@ -29,6 +29,8 @@ router.post('/login', async (req, res) => {
             res.status(200).json(userData)
         })
     } catch (err) {
+        console.log(err) 
+        console.log(req)
         res.status(400).json(err);
     }
 })
