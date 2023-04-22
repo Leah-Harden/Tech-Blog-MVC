@@ -20,7 +20,7 @@ router.post('/comment', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { username: req.username } })
+        const userData = await User.findOne({ where: { username: username } })
 
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -32,12 +32,13 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 })
+
 
 
 router.post('/signup', async (req, res) => {
     try {
-    const userData = await User.create(req.body)
-        
+        const userData = await User.create(req.body)
+
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -49,16 +50,15 @@ router.post('/signup', async (req, res) => {
 })
 
 
-//fix this logout fuction
-router.post('/logout', async (req, res) => {
-    try {
-        req.session.destroy(() => {
-            req.session.logged_in
-        })
-        res.status(200).json(userData)
-    } catch (err) {
-        res.status(400).json(err);
-    }
-})
 
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+            res.render('/')
+        });
+    } else {
+        res.status(404).end();
+    }
+});
 module.exports = router;

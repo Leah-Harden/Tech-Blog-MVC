@@ -7,9 +7,7 @@ const { User } = require('../models');
 router.get('/', async (req, res) => {
     try {
     const userData = await User.findAll();
-    const userData = await User.findByPk(req.session.user_id);
     const users = userData.map((user) => user.get({ plain: true }));
-    const users = userData.get({ plain: true });
     res.render('login', { 
         logged_in: req.session.logged_in 
     });
