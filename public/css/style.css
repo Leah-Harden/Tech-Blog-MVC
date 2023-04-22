@@ -75,6 +75,7 @@ button {
 .navUl{
     display: flex;
     justify-content:space-evenly;
+    align-items: center;
 
 }
 
@@ -83,6 +84,13 @@ button {
     padding: 10px;
 }
 
+.logout {
+    padding: 5px;
+    font-size: 15px;
+    background-color: #8e8eb8;
+    color: #D6EAF7;
+    margin-left: 20px;
+}
 
 /* --------------- nav --------------- */
 

@@ -51,5 +51,24 @@ const signUpFormHandler = async (event) => {
 }
 
 
+const logoutHandler = async () => {
+    try {
+        const response = await fetch('/api/logout', {
+            method: 'post',
+            body: req.session.logged_in,
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        if (response.ok) {
+            res.render('/')
+        }
+    } catch (err) {
+        console.log("Error:", err);
+    }
+}
+
+
 document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
 document.querySelector('#signUp-form').addEventListener('submit', signUpFormHandler);
+document.querySelector('#logout').addEventListener('click', logoutHandler);
