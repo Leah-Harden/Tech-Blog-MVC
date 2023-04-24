@@ -1,7 +1,8 @@
 
-const postCount = 0
 
-const commentCount = 0
+
+
+const postCount = 0
 
 function addPostHomeFunction(){
     

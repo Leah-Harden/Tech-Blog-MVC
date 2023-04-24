@@ -1,19 +1,21 @@
+
+
+
+
 <div class="center">
 
     <h1 class="subtitle RobotoMono">Look empty here. Let's post something!</h1>
     <button class="plusBtn addPost">+</button>
 
-    {{#each Post.postCount}}
+    {{#each postCount}}
     <div class="postCenter">
         <div class="post">
             <h2 class=" RobotoMono postTitle">{{postTitle}}</h2>
             <h2 class="RobotoMono postUsername">{{postName}}</h2>
-            <p class=" RobotoMono postBody"></p>
-            <div class="RobotoMono postComment">
+            <p class=" RobotoMono postBody">{{postBody}}</p>
             {{#each Post.commentCount}}
-                {{commentBody}}
-                {{/each}}
-            </div>
+            <div class="RobotoMono postComment">{{commentBody}}</div>
+            
             {{/each}}
             <button class="RobotoMono postBtn">Comment</button>
         </div>
