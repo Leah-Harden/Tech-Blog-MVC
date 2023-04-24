@@ -17,7 +17,10 @@
 <body>
     <div class="nav">
         <h1 class="navTitle RobotoMono">Techie's Home</h1>
+{{#if logged_in}}
         <h2 class="navUser RobotoMono">Hello {{users.username}}:</h2>
+{{/if}}
+
         <ul class="navUl">
             <li>
                 <a class="navLi RobotoMono" href="/home">Home</a>
@@ -25,17 +28,21 @@
             <li>
                 <a class="navLi RobotoMono" href="/dashboard">Dashboard</a>
             </li>
+            {{#if logged_in}}
+            <li>
+                <button class="logout RobotoMono" type="button" id="logout">Log out</button>
+            </li>
+            {{else}}
             <li>
                 <a class="navLi RobotoMono" href="/">Login</a>
             </li>
-            <li>
-                <button class="logout RobotoMono" id="logout">Log out</button>
-            </li>
+            {{/if}}
         </ul>
     </div>
     {{{body}}}
 </body>
-<script src="./js/script.js"></script>
-<script src="/js/login.js"></script>
-
+{{!-- <script src="./js/script.js"></script> --}}
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </html>
