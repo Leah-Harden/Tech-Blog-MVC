@@ -8,6 +8,20 @@ router.get('/', async (req, res) => {
     try {
     const userData = await User.findAll();
     const users = userData.map((user) => user.get({ plain: true }));
+    res.render('start', { 
+        logged_in: req.session.logged_in 
+    });
+    } catch(err) {
+        console.log(err)
+    }
+});
+
+
+//localhost 3001 login
+router.get('/login', async (req, res) => {
+    try {
+    const userData = await User.findAll();
+    const users = userData.map((user) => user.get({ plain: true }));
     res.render('login', { 
         logged_in: req.session.logged_in 
     });
@@ -15,6 +29,7 @@ router.get('/', async (req, res) => {
         console.log(err)
     }
 })
+
 
 //localhost/3001/dashboard 
 router.get('/dashboard', async (req, res) => {
