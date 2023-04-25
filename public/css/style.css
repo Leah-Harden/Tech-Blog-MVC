@@ -196,17 +196,43 @@ input {
 
 /* --------------- home ---------------*/
 
-.homeForm{
+.flexcol{
     display: flex;
     flex-direction: column;
+  text-align: center;
+
+}
+
+.centerHome{
+        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dark);
+    padding-top: 150px;
+}
+
+.homeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .homeDiv {
-    background-color: var(--one);
+
 }
 
 
 .homeTitle{
+border-radius: 0%;
+font-size: 20px;
+
+}
+
+.homeTextarea{
+    background-color: #a0a0c9;
+    font-size: 14px;
+    padding: 15px
 
 }
 
@@ -218,6 +244,7 @@ input {
 .plusBtn {
     font-size: 30px;
     background-color: var(--one);
+    margin: 20px;
 
 }
 
