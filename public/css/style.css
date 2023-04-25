@@ -196,6 +196,20 @@ input {
 
 /* --------------- home ---------------*/
 
+.homeForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.homeDiv {
+    background-color: var(--one);
+}
+
+
+.homeTitle{
+
+}
+
 .subtitle {
     margin: 30px;
     color: var(--one);

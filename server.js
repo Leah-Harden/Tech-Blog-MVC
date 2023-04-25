@@ -20,6 +20,7 @@ const sess = {
         maxAge: 300000,
         httpOnly: true,
         secure: false,
+        rolling: true,
         sameSite: 'strict',
     },
     resave: false,

@@ -4,22 +4,23 @@
 
 <div class="center">
 
-    <h1 class="subtitle RobotoMono">Look empty here. Let's post something!</h1>
-    <button class="plusBtn addPost">+</button>
+    <form class="homeForm">
 
-    {{#each postCount}}
     <div class="postCenter">
-        <div class="post">
-            <h2 class=" RobotoMono postTitle">{{postTitle}}</h2>
-            <h2 class="RobotoMono postUsername">{{postName}}</h2>
-            <p class=" RobotoMono postBody">{{postBody}}</p>
-            {{#each Post.comment}}
-            <div class="RobotoMono postComment">{{commentBody}}</div>
-            
-            {{/each}}
-            <button class="RobotoMono postBtn">Comment</button>
-        </div>
+        <div class="homeDiv">
+            <input type="text" class=" RobotoMono homeTitle">{{postTitle}}</input>
+            <testarea class=" RobotoMono" rows="5" cols="33">{{postBody}}</testarea>
+
+
     </div>
-    {{/each}}
+
+<div class="homeForm">
+
+    <h1 class="subtitle RobotoMono">Looks empty here. Let's post something!</h1>
+    <button class="plusBtn addPost">+</button>
+</div>
+    </form>
+
+
 
 </div>
