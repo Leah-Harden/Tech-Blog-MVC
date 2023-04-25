@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 const { Comment } = require('../../models');
+const fs = require('fs')
 
 router.post('/comment', async (req, res) => {
     try {
@@ -63,4 +64,16 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
