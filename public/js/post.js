@@ -15,7 +15,7 @@ const savePost = (post) =>
         body: JSON.stringify(post),
     });
 
-const getPost = () =>
+const getPost = (id) =>
     fetch('/api/post', {
         method: 'GET',
         headers: {
@@ -39,16 +39,19 @@ const handlePostSave = () => {
 
 function addPostHomeFunction() {
     ++postHomeCount
+    return postHomeCount
 }
 
 // Makes the Post
 const createPost = (title, user, body) => {
+        // add the elements
     const PostCenEl = document.createElement('div');
     PostCenEl.classList.add('postCenter');
     const PostEl = document.createElement('div');
     PostEl.classList.add('post');
     const postTitle = document.createElement('h2');
-
+      // --------------------------------
+      // add the text elements
     postTitle.classList.add('RobotoMono postTitle');
     const postUsername = document.createElement('h2');
     postUsername.classList.add('RobotoMono postUsername');
