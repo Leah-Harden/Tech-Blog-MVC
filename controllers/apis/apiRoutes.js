@@ -84,20 +84,20 @@ router.post('/api/post', async (req, res) => {
 })
 
 
-router.get('/api/post', async (req, res) => {
-    try {
-        const userData = await Post.findOne({ where: { id: req.body.id } })
-        req.session.reload(() => {
-            req.session.user_id = userData.id;
-            req.session.logged_in = true;
-            console.log(Post)
-        })
-    } catch (err) {
-        console.log(err) 
-        console.log(req)
-        res.status(400).json(err);
-    }
-})
+// router.get('/api/post/:id', async (req, res) => {
+//     try {
+//         const userData = await Post.findOne({ where: { id: req.params.id } })
+//         req.session.reload(() => {
+//             req.session.user_id = userData.id;
+//             req.session.logged_in = true;
+//             console.log(Post)
+//         })
+//     } catch (err) {
+//         console.log(err) 
+//         console.log(req)
+//         res.status(400).json(err);
+//     }
+// })
 
 
 

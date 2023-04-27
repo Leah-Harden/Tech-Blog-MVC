@@ -1,11 +1,5 @@
 
 
-
-
-const postHomeCount = 0
-
-
-
 const savePost = (post) =>
     fetch('/api/post', {
         method: 'POST',
@@ -13,37 +7,24 @@ const savePost = (post) =>
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(post),
-    });
-
-const getPost = (id) =>
-    fetch('/api/post', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
+});
 
 
 const handlePostSave = () => {
     const newPost = {
         title: postTitle.value,
-        user: postUser.value,
+        user_id: postUser.value,
         body: postbody.value,
     };
     savePost(newPost).then(() => {
-        getAndRenderPosts()
+        createPost(newPost)
 
     });
 };
 
 
-function addPostHomeFunction() {
-    ++postHomeCount
-    return postHomeCount
-}
-
 // Makes the Post
-const createPost = (title, user, body) => {
+const createPost = ({title, user, body}) => {
         // add the elements
     const PostCenEl = document.createElement('div');
     PostCenEl.classList.add('postCenter');
@@ -67,11 +48,7 @@ const createPost = (title, user, body) => {
 };
 
 
-
-
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderPosts = () => getPost().then(createPost);
-
-const addPostHome = document.querySelector('addPost').addEventListener('submit', addPostHomeFunction);
+const addPostHome = document.querySelector('addPost').addEventListener('submit',handlePostSave);
 
 getAndRenderPosts()
