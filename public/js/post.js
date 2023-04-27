@@ -45,7 +45,7 @@ const newFormHandler = async function (event) {
     const user = document.querySelector('h2[name="navUser"]').value;
     const body = document.querySelector('textarea[name="post-body"]').value;
     console.log(title, user, body)
-    savePost(title, user, body).then(() => {
+    await savePost(title, user, body).then(() => {
         createPost(title, user, body)
 
     })
