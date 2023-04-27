@@ -42,11 +42,11 @@ const newFormHandler = async function (event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="post-title"]').value;
-    const user = document.querySelector('h2[name="navUser"]').value;
+    // const user = document.querySelector('h2[name="navUser"]').value;
     const body = document.querySelector('textarea[name="post-body"]').value;
-    console.log(title, user, body)
-    await savePost(title, user, body).then(() => {
-        createPost(title, user, body)
+    console.log(title,body)
+    await savePost({title:title, body:body}).then(() => {
+    createPost({title:title, body:body})
 
     })
 };
@@ -80,7 +80,6 @@ const createPost = ({ title, user, body }) => {
         postBody.innerText = body;
         // append everythings
         flexcol.append(PostCenEl);
-
     }
     catch (err) {
         console.log(err)

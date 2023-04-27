@@ -68,7 +68,7 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.post('/api/post', async (req, res) => {
+router.post('/post', async (req, res) => {
     try {
         const userData = await Post.create(req.body)
         req.session.reload(() => {
