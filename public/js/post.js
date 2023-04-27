@@ -1,5 +1,9 @@
 
 
+const flexcol = document.querySelector('#flexcol')
+
+
+
 const savePost = (post) =>{
     try{
         
@@ -44,6 +48,8 @@ const createPost = ({ title, user, body }) => {
         const PostEl = document.createElement('div');
         PostEl.classList.add('post');
         const postTitle = document.createElement('h2');
+        PostCenEl.append(PostEl);
+        PostEl.append(postTitle);
         // --------------------------------
         // add the text elements
         postTitle.classList.add('RobotoMono postTitle');
@@ -53,16 +59,22 @@ const createPost = ({ title, user, body }) => {
         postBody.classList.add('RobotoMono postBody');
         const postButton = document.createElement('button');
         postButton.classList.add('RobotoMono postBtn');
+        PostEl.append(postUsername);
+        PostEl.append(postBody);
+        PostEl.append(postButton);
         // add the texts in
         postTitle.innerText = title;
         postUsername.innerText = user;
         postBody.innerText = body;
-        delBtnEl.addEventListener('click', handleNoteDelete);
-    } catch (err) {
+        // append everythings
+        flexcol.append(PostCenEl);
+
+    }
+    catch (err){
         console.log(err)
     }
 }
 
 
 // Gets notes from the db and renders them to the sidebar
-document.querySelector('addPost').addEventListener('submit', handlePostSave);
+document.querySelector('.addPost').addEventListener('submit', handlePostSave);
