@@ -16,7 +16,8 @@ const savePost = (post) =>{
 }
     
     
-const handlePostSave = () => {
+const handlePostSave = (e) => {
+    preventDefault(e) 
     try{
 
         const newPost = {
@@ -36,7 +37,6 @@ const handlePostSave = () => {
 
 // Makes the Post
 const createPost = ({ title, user, body }) => {
-
     try {
         // add the elements
         const PostCenEl = document.createElement('div');
@@ -65,6 +65,4 @@ const createPost = ({ title, user, body }) => {
 
 
 // Gets notes from the db and renders them to the sidebar
-const addPostHome = document.querySelector('addPost').addEventListener('submit', handlePostSave);
-
-getAndRenderPosts()
+document.querySelector('addPost').addEventListener('submit', handlePostSave);
