@@ -1,25 +1,27 @@
 
 
-const centerHome = document.querySelector('#centerHome')
 
 
-const commentHandler = async function (event) {
+
+const centerHome = document.querySelector('centerHome')
+
+
+const CommentHandler = async function (event) {
     event.preventDefault();
-
+    const user = document.querySelector('h2[name="navUser"]').innerHTML;
     const body = document.querySelector('textarea[name="post-body"]').value;
-    console.log(body)
-    savePost({body:body}).then(() => {
+    console.log(user,body)
+    savePost({ user:user, body:body}).then(() => {
         console.log('done')
-    createPost({title:title, user:user, body:body})
+    createPost({user:user, body:body})
 
     })
 };
 
 
 
-
 const saveComment = (post) => {
-    return fetch('/api/post', {
+    return fetch('/api/comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,36 +33,44 @@ const saveComment = (post) => {
 
 
 
+
 // Makes the Post
-const createPost = ({ title, user, body }) => {
+const createPost = ({user, body }) => {
     try {
-        // add the elements
-        const PostCenEl = document.createElement('div');
-        PostCenEl.classList.add('postCenter');
-        const PostEl = document.createElement('div');
-        PostEl.classList.add('post');
-        const postTitle = document.createElement('h2');
-        PostCenEl.append(PostEl);
-        PostEl.append(postTitle);
+
         // --------------------------------
-        // add the text elements
-        postTitle.classList.add('RobotoMono','postTitle');
-        const postUsername = document.createElement('h2');
-        postUsername.classList.add('RobotoMono','postUsername');
-        const postBody = document.createElement('p');
-        postBody.classList.add('RobotoMono','postBody');
-        const postButton = document.createElement('button');
-        postButton.classList.add('RobotoMono','postBtn');
-        postButton.value.add('comment');
-        PostEl.append(postUsername);
-        PostEl.append(postBody);
-        PostEl.append(postButton);
+        //add the comment elements 
+        const divComment  = document.createElement('div');
+        const divComment2  = document.createElement('div');
+        divComment2.classList.add('RobotoMono','postComment');
+        const dateComment  = document.createElement('h2');
+        dateComment.classList.add('RobotoMono','commentData');
+        const usernameComment  = document.createElement('h2');
+        usernameComment.classList.add('RobotoMono','commentUsername');
+        const bodyComment = document.createElement('p');
+        bodyComment.classList.add('RobotoMono','postBody');
+        const CommentBtn = document.createElement('button');
+        CommentBtn.classList.add('RobotoMono','commentBtn');
+        divComment.append(bodyComment);
+        divComment.append(CommentBtn);
+        PostEl.append(divComment);
+        //add the comment elements 
+        
+        // create the date  --------------------------------
+        
+        const d = new Date();
+        let day = d.getDate();
+        let month = d.getMonth();
+        let year = d.getFullYear()
+        date = `${year}-${month}-${day}`
+        
+        //create the date  --------------------------------
         // add the texts in
-        postTitle.innerText = title;
-        postUsername.innerText = user;
-        postBody.innerText = body;
+        usernameComment.innerText = user;
+        bodyComment.innerText = body;
+        dateComment.innerText = date;
+        CommentBtn.innerHTML = 'comment';
         // append everythings
-        console.log(flexcol)
         centerHome.prepend(PostCenEl);
         console.log(PostCenEl)
     }
@@ -70,28 +80,7 @@ const createPost = ({ title, user, body }) => {
 }
 
 
- <div>
-            <div class="RobotoMono postComment">
-                <h2 class="RobotoMono commentData">5/3/2023</h2>
-                <h2 class="RobotoMono commentUsername">Techie234:</h2>
-                <hr class="commentHr">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore etF Fdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip
-            </div>
-            <form>
-                <textarea class="RobotoMono postComment commentInput">
-        </textarea>
-            </form>
-            <button class="RobotoMono postBtn">Comment</button>
-        </div>
-
-
-
-
-
-
 
 
 // Gets notes from the db and renders them to the sidebar
-document.querySelector('.addPost').addEventListener('submit', newFormHandler);
+document.querySelector('.commentBtn').addEventListener('submit', CommentHandler);

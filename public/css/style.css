@@ -1,4 +1,3 @@
-
 /* --------------- required on everything --------------- */
 :root {
     --light: #D6EAF7;
@@ -8,11 +7,11 @@
     --dark: #1b0b2b;
 }
 
-.Roboto{
+.Roboto {
     font-family: 'Roboto', sans-serif;
 }
 
-.RobotoMono{
+.RobotoMono {
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -35,7 +34,7 @@ button {
 }
 
 .center {
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,6 +42,7 @@ button {
     padding: 150px;
 
 }
+
 /* --------------- basic --------------- */
 
 
@@ -52,7 +52,7 @@ button {
     display: flex;
     background-color: var(--sec);
     padding: 30px;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
 
 }
@@ -61,7 +61,7 @@ button {
     color: var(--light);
     background-color: var(--one);
     font-size: 42px;
-    padding: 15px 40px 15px 40px ;
+    padding: 15px 40px 15px 40px;
     border: solid 7px var(--light);
 }
 
@@ -69,12 +69,12 @@ button {
 .navUser {
     color: var(--light);
     font-size: 36px;
-    padding: 15px 40px 15px 40px ;
+    padding: 15px 40px 15px 40px;
 }
 
-.navUl{
+.navUl {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
 
 }
@@ -134,7 +134,7 @@ button {
     border-bottom: #3c3361 solid 3px;
 }
 
-.StartA{
+.StartA {
     margin: 30px;
     font-size: 18px;
     padding: 15px 35px 15px 35px;
@@ -153,14 +153,14 @@ button {
 }
 
 .loginHr {
-    border:var(--one) 3px solid;
+    border: var(--one) 3px solid;
     width: 60%;
 }
 
 .logDiv {
     display: flex;
     flex-direction: row;
-    align-items:center;
+    align-items: center;
     padding-bottom: 20px;
 }
 
@@ -179,32 +179,32 @@ input {
     border-radius: 10px;
     background-color: var(--one);
     border: #2B0B0C;
-    
+
 }
 
 
 .backtoback {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     padding: 5px;
-    align-items:center;
+    align-items: center;
     width: 25%;
-    
+
 }
 
 /* --------------- login --------------- */
 
 /* --------------- home ---------------*/
 
-.flexcol{
+.flexcol {
     display: flex;
     flex-direction: column;
-  text-align: center;
+    text-align: center;
 
 }
 
-.centerHome{
-        
+.centerHome {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -218,22 +218,19 @@ input {
     align-items: center;
 }
 
-.homeDiv {
+.homeDiv {}
+
+
+.homeTitle {
+    border-radius: 0%;
+    font-size: 20px;
 
 }
 
-
-.homeTitle{
-border-radius: 0%;
-font-size: 20px;
-
-}
-
-.homeTextarea{
+.homeTextarea {
     background-color: #a0a0c9;
     font-size: 14px;
     padding: 15px
-
 }
 
 .subtitle {
@@ -256,7 +253,7 @@ font-size: 20px;
     display: flex;
     justify-content: center;
     margin: 5%;
-    
+
 }
 
 
@@ -275,7 +272,8 @@ font-size: 20px;
     background-color: var(--thr);
     word-wrap: break-word;
 }
-.postUsername{
+
+.postUsername {
     font-size: 20px;
     color: var(--light);
     margin: 10px;
@@ -312,7 +310,7 @@ font-size: 20px;
 }
 
 .commentUsername {
-color: var(--sec);
+    color: var(--sec);
 
 }
 
@@ -321,7 +319,13 @@ color: var(--sec);
     border-bottom: solid 2px var(--one);
     width: 100%;
 }
-.commentInput{
+
+.commentInput {
     width: 80%;
     max-width: 80%;
+}
+
+.commentBtn {
+    font-size: 16px;
+    margin-top: 10px;
 }

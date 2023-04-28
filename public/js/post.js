@@ -61,7 +61,7 @@ const createPost = ({ title, user, body }) => {
         const textareaComment = document.createElement('textarea');
         textareaComment.classList.add('RobotoMono','postComment','commentInput');
         const CommentBtn = document.createElement('button');
-        CommentBtn.classList.add('RobotoMono','postBtn');
+        CommentBtn.classList.add('RobotoMono','commentBtn');
         formComment.append(textareaComment);
         formComment.append(CommentBtn);
         PostEl.append(formComment);
