@@ -75,6 +75,7 @@ router.post('/post', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             console.log(Post)
+            res.status(200).json(Post);
         })
     } catch (err) {
         console.log(err) 

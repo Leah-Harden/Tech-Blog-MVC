@@ -5,18 +5,16 @@ const flexcol = document.querySelector('#flexcol')
 
 
 const savePost = (post) => {
-    try {
 
-        fetch('/api/post', {
+
+    return fetch('/api/post', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(post),
         })
-    } catch (err) {
-        console.log(err)
-    }
+
 }
 
 
@@ -42,14 +40,16 @@ const newFormHandler = async function (event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="post-title"]').value;
-    // const user = document.querySelector('h2[name="navUser"]').value;
+    const user = document.querySelector('h2[name="navUser"]').value;
     const body = document.querySelector('textarea[name="post-body"]').value;
-    console.log(title,body)
-    await savePost({title:title, body:body}).then(() => {
-    createPost({title:title, body:body})
+    console.log(title,user,body)
+    savePost({title:title, user:user, body:body}).then(() => {
+        console.log('done')
+    createPost({title:title, user:user, body:body})
 
     })
 };
+
 
 // Makes the Post
 const createPost = ({ title, user, body }) => {
@@ -64,13 +64,13 @@ const createPost = ({ title, user, body }) => {
         PostEl.append(postTitle);
         // --------------------------------
         // add the text elements
-        postTitle.classList.add('RobotoMono postTitle');
+        postTitle.classList.add('RobotoMono','postTitle');
         const postUsername = document.createElement('h2');
-        postUsername.classList.add('RobotoMono postUsername');
+        postUsername.classList.add('RobotoMono','postUsername');
         const postBody = document.createElement('p');
-        postBody.classList.add('RobotoMono postBody');
+        postBody.classList.add('RobotoMono','postBody');
         const postButton = document.createElement('button');
-        postButton.classList.add('RobotoMono postBtn');
+        postButton.classList.add('RobotoMono','postBtn');
         PostEl.append(postUsername);
         PostEl.append(postBody);
         PostEl.append(postButton);
@@ -79,7 +79,9 @@ const createPost = ({ title, user, body }) => {
         postUsername.innerText = user;
         postBody.innerText = body;
         // append everythings
-        flexcol.append(PostCenEl);
+        console.log(flexcol)
+        flexcol.prepend(PostCenEl);
+        console.log(PostCenEl)
     }
     catch (err) {
         console.log(err)
