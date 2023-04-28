@@ -52,12 +52,20 @@ const createPost = ({ title, user, body }) => {
         postUsername.classList.add('RobotoMono','postUsername');
         const postBody = document.createElement('p');
         postBody.classList.add('RobotoMono','postBody');
-        const postButton = document.createElement('button');
-        postButton.classList.add('RobotoMono','postBtn');
         PostEl.append(postDate);
         PostEl.append(postUsername);
         PostEl.append(postBody);
-        PostEl.append(postButton);
+        // --------------------------------
+        //add the comment elements 
+        const formComment  = document.createElement('form');
+        const textareaComment = document.createElement('textarea');
+        textareaComment.classList.add('RobotoMono','postComment','commentInput');
+        const CommentBtn = document.createElement('button');
+        CommentBtn.classList.add('RobotoMono','postBtn');
+        formComment.append(textareaComment);
+        formComment.append(CommentBtn);
+        PostEl.append(formComment);
+        //add the comment elements 
         
         // create the date  --------------------------------
         
@@ -73,7 +81,7 @@ const createPost = ({ title, user, body }) => {
         postUsername.innerText = user;
         postBody.innerText = body;
         postDate.innerText = date;
-        postButton.innerHTML = 'comment';
+        CommentBtn.innerHTML = 'comment';
         // append everythings
         console.log(flexcol)
         centerHome.prepend(PostCenEl);
