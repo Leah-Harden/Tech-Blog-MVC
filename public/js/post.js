@@ -5,9 +5,8 @@ const centerHome = document.querySelector('#centerHome')
 
 const newFormHandler = async function (event) {
     event.preventDefault();
-
     const title = document.querySelector('input[name="post-title"]').value;
-    const user = document.querySelector('h2[name="navUser"]').value;
+    const user = document.querySelector('h2[name="navUser"]').innerHTML;
     const body = document.querySelector('textarea[name="post-body"]').value;
     console.log(title,user,body)
     savePost({title:title, user:user, body:body}).then(() => {
@@ -47,20 +46,34 @@ const createPost = ({ title, user, body }) => {
         // --------------------------------
         // add the text elements
         postTitle.classList.add('RobotoMono','postTitle');
+        const postDate = document.createElement('h2');
+        postDate.classList.add('RobotoMono','postUsername');
         const postUsername = document.createElement('h2');
         postUsername.classList.add('RobotoMono','postUsername');
         const postBody = document.createElement('p');
         postBody.classList.add('RobotoMono','postBody');
         const postButton = document.createElement('button');
         postButton.classList.add('RobotoMono','postBtn');
-        postButton.value.add('comment');
+        PostEl.append(postDate);
         PostEl.append(postUsername);
         PostEl.append(postBody);
         PostEl.append(postButton);
+        
+        // create the date  --------------------------------
+        
+        const d = new Date();
+        let day = d.getDate();
+        let month = d.getMonth();
+        let year = d.getFullYear()
+        date = `${year}-${month}-${day}`
+        
+        //create the date  --------------------------------
         // add the texts in
         postTitle.innerText = title;
         postUsername.innerText = user;
         postBody.innerText = body;
+        postDate.innerText = date;
+        postButton.innerHTML = 'comment';
         // append everythings
         console.log(flexcol)
         centerHome.prepend(PostCenEl);
@@ -70,9 +83,6 @@ const createPost = ({ title, user, body }) => {
         console.log(err)
     }
 }
-
-
-
 
 
 // Gets notes from the db and renders them to the sidebar

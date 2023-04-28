@@ -21,7 +21,7 @@ Comment.init({
     },
     data: {
         type: DataTypes.DATE,
-        allowNull: false,
+
     },
     body: {
         type: DataTypes.STRING,

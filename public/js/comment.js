@@ -70,21 +70,21 @@ const createPost = ({ title, user, body }) => {
 }
 
 
-<div>
-<div class="RobotoMono postComment">
-    <h2 class="RobotoMono commentData">5/3/2023</h2>
-    <h2 class="RobotoMono commentUsername">Techie234:</h2>
-    <hr class="commentHr">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore etF Fdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-    ullamco laboris nisi ut aliquip
-</div>
-<form>
-    <textarea class="RobotoMono postComment commentInput">
-</textarea>
-</form>
-<button class="RobotoMono postBtn">Comment</button>
-</div>
+ <div>
+            <div class="RobotoMono postComment">
+                <h2 class="RobotoMono commentData">5/3/2023</h2>
+                <h2 class="RobotoMono commentUsername">Techie234:</h2>
+                <hr class="commentHr">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore etF Fdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip
+            </div>
+            <form>
+                <textarea class="RobotoMono postComment commentInput">
+        </textarea>
+            </form>
+            <button class="RobotoMono postBtn">Comment</button>
+        </div>
 
 
 

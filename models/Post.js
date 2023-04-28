@@ -35,7 +35,6 @@ Post.init({
     },
     data: {
         type: DataTypes.DATE,
-        allowNull: false,
     },
 },
 {
