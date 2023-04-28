@@ -273,6 +273,7 @@ font-size: 20px;
     padding: 25px;
     border: dashed 8px var(--dark);
     background-color: var(--thr);
+    word-wrap: break-word;
 }
 .postUsername{
     font-size: 20px;
@@ -285,6 +286,7 @@ font-size: 20px;
     padding: 20px;
     margin-top: 15px;
     background-color: var(--thr);
+    word-wrap: break-word;
 }
 
 .postComment {
@@ -300,4 +302,26 @@ font-size: 20px;
     margin-top: 10px;
 }
 
+
 /* --------------- dashboard --------------- */
+
+
+
+.commentData {
+    color: var(--sec);
+}
+
+.commentUsername {
+color: var(--sec);
+
+}
+
+.commentHr {
+    color: var(--sec);
+    border-bottom: solid 2px var(--one);
+    width: 100%;
+}
+.commentInput{
+    width: 80%;
+    max-width: 80%;
+}

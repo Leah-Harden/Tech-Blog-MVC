@@ -33,6 +33,10 @@ Post.init({
             len: [8]
         }
     },
+    data: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
 },
 {
         sequelize,

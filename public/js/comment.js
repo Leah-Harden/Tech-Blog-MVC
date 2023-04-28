@@ -3,14 +3,12 @@
 const centerHome = document.querySelector('#centerHome')
 
 
-const newFormHandler = async function (event) {
+const commentHandler = async function (event) {
     event.preventDefault();
 
-    const title = document.querySelector('input[name="post-title"]').value;
-    const user = document.querySelector('h2[name="navUser"]').value;
     const body = document.querySelector('textarea[name="post-body"]').value;
-    console.log(title,user,body)
-    savePost({title:title, user:user, body:body}).then(() => {
+    console.log(body)
+    savePost({body:body}).then(() => {
         console.log('done')
     createPost({title:title, user:user, body:body})
 
@@ -20,7 +18,7 @@ const newFormHandler = async function (event) {
 
 
 
-const savePost = (post) => {
+const saveComment = (post) => {
     return fetch('/api/post', {
             method: 'POST',
             headers: {
@@ -70,6 +68,26 @@ const createPost = ({ title, user, body }) => {
         console.log(err)
     }
 }
+
+
+<div>
+<div class="RobotoMono postComment">
+    <h2 class="RobotoMono commentData">5/3/2023</h2>
+    <h2 class="RobotoMono commentUsername">Techie234:</h2>
+    <hr class="commentHr">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore etF Fdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip
+</div>
+<form>
+    <textarea class="RobotoMono postComment commentInput">
+</textarea>
+</form>
+<button class="RobotoMono postBtn">Comment</button>
+</div>
+
+
+
 
 
 
