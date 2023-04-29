@@ -85,6 +85,24 @@ router.post('/post', async (req, res) => {
 })
 
 
+router.post('/comment', async (req, res) => {
+    try {
+        const userData = await Comment.create(req.body)
+        req.session.reload(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+            console.log(Post)
+            res.status(200).json(Post);
+        })
+    } catch (err) {
+        console.log(err) 
+        console.log(req)
+        res.status(400).json(err);
+    }
+})
+
+
+
 // router.get('/api/post/:id', async (req, res) => {
 //     try {
 //         const userData = await Post.findOne({ where: { id: req.params.id } })

@@ -20,13 +20,13 @@ const CommentHandler = async function (event) {
 
 
 
-const saveComment = (post) => {
+const saveComment = (comment) => {
     return fetch('/api/comment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(post),
+            body: JSON.stringify(comment),
         })
 
 }
