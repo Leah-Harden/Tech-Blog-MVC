@@ -6,9 +6,21 @@ const { Post } = require('../models');
 //localhost 3001 nothing
 router.get('/', async (req, res) => {
     try {
-        const userData = await User.findAll();
-        const users = userData.map((user) => user.get({ plain: true }));
+
+        // Get all projects and JOIN with user data
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
+
+        // Serialize data so the template can read it
+        const post = postData.map((post) => post.get({ plain: true }));
         res.render('start', {
+            posts,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -20,8 +32,6 @@ router.get('/', async (req, res) => {
 //localhost 3001 login
 router.get('/login', async (req, res) => {
     try {
-        const userData = await User.findAll();
-        const users = userData.map((user) => user.get({ plain: true }));
         res.render('login', {
             logged_in: req.session.logged_in
         });
@@ -63,26 +73,26 @@ router.get('/home', async (req, res) => {
 
 router.get('/project/:id', async (req, res) => {
     try {
-            const projectData = await Post.findByPk(req.params.id, {
-                include: [
-                    {
-                        model: User,
-                        attributes: ['name'],
-                    },
-                ],
-            });
-            const userData = await User.findByPk(req.session.user_id);
-            const users = userData.get({ plain: true });
-            const project = projectData.get({ plain: true }); 
-            res.render('project', {
-                logged_in: req.session.logged_in,
-                project,
-                users
-            });
-        } catch (err) {
-            console.log(err)
-        }
-    });
+        const projectData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
+        const userData = await User.findByPk(req.session.user_id);
+        const users = userData.get({ plain: true });
+        const project = projectData.get({ plain: true });
+        res.render('project', {
+            logged_in: req.session.logged_in,
+            project,
+            users
+        });
+    } catch (err) {
+        console.log(err)
+    }
+});
 
 
 module.exports = router;

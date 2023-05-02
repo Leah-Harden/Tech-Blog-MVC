@@ -1,19 +1,13 @@
 
 
-
-
-<div class="postCenter">
-    <div class="post">
-        <h2 class=" RobotoMono postTitle" href="/project/{{project.id}}" >How do you feel about AI?</h2>
-        <h2 class="RobotoMono postUsername">4/21/2023</h2>
-        <h2 class="RobotoMono postUsername">Coder321:</h2>
-    </div>
-</div>
+{{#each posts as |post| }}
 
 <div class="postCenter">
     <div class="post">
-        <a class=" RobotoMono postTitle" href="/project/{{project.id}}">What is the best JavaScript framework?</a>
-        <h2 class="RobotoMono postUsername">2/27/2023</h2>
-        <h2 class="RobotoMono postUsername">TechHead98:</h2>
+        <h2 class=" RobotoMono postTitle" href="/project/{{post.id}}" >{{post.title}}</h2>
+        <h2 class="RobotoMono postUsername">{{post.date}}</h2>
+        <h2 class="RobotoMono postUsername">{{post.user.username}}</h2>
     </div>
 </div>
+
+{{/each}}

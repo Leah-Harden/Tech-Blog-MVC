@@ -1,11 +1,22 @@
+{{#each posts as |post| }}
+{{#if post.user_id = user.user_id}}
+
+<div class="postCenter">
+    <div class="post">
+        <h2 class=" RobotoMono postTitle" href="/project/{{post.id}}" >{{post.title}}</h2>
+        <h2 class="RobotoMono postUsername">{{post.date}}</h2>
+        <h2 class="RobotoMono postUsername">{{post.user.username}}</h2>
+    </div>
+</div>
+
+{{/if}}
+{{/each}}
+
+
 
 
 
 <div class="centerHome" id="centerHome">
-
-
-
-
     <div class="flexcol" id="flexcol">
         <h1 class="subtitle RobotoMono">Looks empty here. Let's post something!</h1>
         <form class="homeForm addPost">
