@@ -1,0 +1,24 @@
+<div class="postCenter">
+    <div class="post">
+        <h2 class=" RobotoMono postTitle">{{name}}</h2>
+        <h2 class="RobotoMono postUsername">{{data}}</h2>
+        <h2 class="RobotoMono postUsername">{{username}}:</h2>
+        <p class=" RobotoMono postBody">{{body}}</p>
+        <div>
+            {{#each comment}}
+            <div class="RobotoMono postComment">
+                <h2 class="RobotoMono commentData">{{commentDate}}</h2>
+                <h2 class="RobotoMono commentUsername">{{commentuser}}</h2>
+                <hr class="commentHr">
+                <p>
+                    {{commentBody}}
+                </p>
+            </div>
+            <form>
+                {{/each}}
+                <textarea class="RobotoMono postComment commentInput"></textarea>
+                <button class="RobotoMono commentBtn">Comment</button>
+            </form>
+        </div>
+    </div>
+</div>

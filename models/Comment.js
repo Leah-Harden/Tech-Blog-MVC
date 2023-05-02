@@ -19,6 +19,13 @@ Comment.init({
             key:'id'
         }
     },
+    Post_id: {
+        type: DataTypes.UUID,
+        references: {
+            model:'Post',
+            key:'id'
+        }
+    },
     data: {
         type: DataTypes.DATE,
 

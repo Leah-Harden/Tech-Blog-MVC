@@ -93,5 +93,18 @@ const createPost = ({ title, user, body }) => {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Gets notes from the db and renders them to the sidebar
 document.querySelector('.addPost').addEventListener('submit', newFormHandler);
