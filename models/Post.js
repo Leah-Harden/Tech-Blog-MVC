@@ -7,7 +7,7 @@ class Post extends Model {
 }
 Post.init({
     id: {
-        type: DataTypes.UUID,
+        type:DataTypes.INTEGER,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false,
@@ -15,7 +15,7 @@ Post.init({
 
     },
     user_id: {
-        type: DataTypes.UUID,
+        type:DataTypes.INTEGER,
         references: {
             model:'User',
             key:'id'
