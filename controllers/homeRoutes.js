@@ -6,21 +6,7 @@ const { Post } = require('../models');
 //localhost 3001 nothing
 router.get('/', async (req, res) => {
     try {
-
-        // Get all projects and JOIN with user data
-        const postData = await Post.findAll({
-            include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
-            ],
-        });
-
-        // Serialize data so the template can read it
-        const posts = postData.map((post) => post.get({ plain: true }));
         res.render('start', {
-            posts,
             logged_in: req.session.logged_in
         });
     } catch (err) {
@@ -44,10 +30,21 @@ router.get('/login', async (req, res) => {
 //localhost/3001/dashboard 
 router.get('/dashboard', async (req, res) => {
     try {
-        const userData = await User.findByPk(req.session.user_id);
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
+        });
 
+        // Serialize data so the template can read it
+        const posts = postData.map((post) => post.get({ plain: true }));
+        const userData = await User.findByPk(req.session.user_id);
         const users = userData.get({ plain: true });
         res.render('dashboard', {
+            posts,
             logged_in: req.session.logged_in,
             users
         });
@@ -59,10 +56,22 @@ router.get('/dashboard', async (req, res) => {
 //localhost/3001/home 
 router.get('/home', async (req, res) => {
     try {
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
+        });
+
+        // Serialize data so the template can read it
+        const posts = postData.map((post) => post.get({ plain: true }));
         const userData = await User.findByPk(req.session.user_id);
 
         const users = userData.get({ plain: true });
         res.render('home', {
+            posts,
             logged_in: req.session.logged_in,
             users
         });
