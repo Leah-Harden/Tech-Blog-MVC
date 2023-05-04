@@ -24,16 +24,10 @@ Post.init({
     title: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-            len: [8]
-        }
     },
     body: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-            len: [8]
-        }
     },
     date: {
         type: DataTypes.DATE,

@@ -1,5 +1,5 @@
 {{#each posts as |post| }}
-{{#if post.user_id = user.user_id}}
+{{#ifeq post.user_id 'user.user_id'}}
 
 <div class="postCenter">
     <div class="post">
@@ -9,7 +9,7 @@
     </div>
 </div>
 
-{{/if}}
+{{/ifeq}}
 {{/each}}
 
 

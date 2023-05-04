@@ -262,15 +262,14 @@ input {
     background-color: var(--one);
     padding: 15px;
     width: 80%;
+    border: dashed 8px var(--light);
+    background-color: var(--one);
 
 }
 
 .postTitle {
     font-size: 35px;
-    padding: 25px;
-    border: dashed 8px var(--dark);
-    background-color: var(--thr);
-    word-wrap: break-word;
+    padding: 15px;
 }
 
 .postUsername {
