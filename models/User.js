@@ -22,16 +22,8 @@ User.init({
         allowNull: false,
     },
 },
-
-
     {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'User'
-    },
-    {
+
         hooks: {
             // set up beforeCreate lifecycle "hook" functionality
             beforeCreate: async (newUserData) => {
@@ -42,7 +34,13 @@ User.init({
                 updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
                 return updatedUserData;
             }
-        }
+        },
+        
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'User'
     })
 
 module.exports = User;

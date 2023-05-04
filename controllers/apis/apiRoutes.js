@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const { Post } = require('../../models');
 const { Comment } = require('../../models');
-const bcrypt = require('bcrypt');
 
 const fs = require('fs')
 
@@ -24,7 +23,7 @@ router.post('/comment', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { username: req.body.username ,password: req.body.password} })
+        const userData = await User.findOne({ where: { username: req.body.username, password: req.body.password} })
 
         req.session.reload(() => {
             console.log(userData)

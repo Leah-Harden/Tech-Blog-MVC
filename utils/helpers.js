@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const Handlebars = require('Handlebars');
 
 
-module.exports = function(Handlebars) {
+module.exports = function ifeq (Handlebars) {
     Handlebars.registerHelper('ifeq', function (a, b, options) {
         if (a == b) { 
             return options.fn(this);
