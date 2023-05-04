@@ -24,9 +24,7 @@ router.post('/comment', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-
-        const hashPassword = await bcrypt.hash(req.body.password, 10)
-        const userData = await User.findOne({ where: { username: req.body.username ,password: hashPassword} })
+        const userData = await User.findOne({ where: { username: req.body.username ,password: req.body.password} })
 
         req.session.reload(() => {
             console.log(userData)
@@ -46,9 +44,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/signup', async (req, res) => {
     try {
-
-        const hashPassword = await bcrypt.hash(req.body.password, 10)
-        const userData = await User.create(req.body.username,hashPassword)
+        const userData = await User.create(req.body)
         console.log(userData)
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -106,6 +102,24 @@ router.post('/comment', async (req, res) => {
         res.status(400).json(err);
     }
 })
+
+
+
+// router.get('/api/post/:id', async (req, res) => {
+//     try {
+//         const userData = await Post.findOne({ where: { id: req.params.id } })
+//         req.session.reload(() => {
+//             req.session.user_id = userData.id;
+//             req.session.logged_in = true;
+//             console.log(Post)
+//         })
+//     } catch (err) {
+//         console.log(err) 
+//         console.log(req)
+//         res.status(400).json(err);
+//     }
+// })
+
 
 
 
