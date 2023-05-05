@@ -68,7 +68,6 @@ router.get('/home', withAuth, async (req, res) => {
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
         const userData = await User.findByPk(req.session.user_id);
-
         const users = userData.get({ plain: true });
         res.render('home', {
             posts,
@@ -82,20 +81,21 @@ router.get('/home', withAuth, async (req, res) => {
 
 router.get('/project/:id', async (req, res) => {
     try {
-        const projectData = await Post.findByPk(req.params.id, {
+        const postData = await Post.findByPk(req.params.id, {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
             ],
         });
-        const userData = await User.findByPk(req.session.user_id);
+
+        const post = postData.get({ plain: true });
+        const userData = await User.findByPk(req.session.user_id);;
         const users = userData.get({ plain: true });
-        const project = projectData.get({ plain: true });
         res.render('project', {
             logged_in: req.session.logged_in,
-            project,
+            post,
             users
         });
     } catch (err) {
