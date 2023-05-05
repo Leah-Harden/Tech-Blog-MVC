@@ -54,7 +54,7 @@ router.get('/dashboard', async (req, res) => {
 });
 
 //localhost/3001/home 
-router.get('/home', async (req, res) => {
+router.get('/home', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [
