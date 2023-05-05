@@ -23,9 +23,17 @@ router.post('/comment', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: { username: req.body.username} })
+        const userData = await User.findOne({ where: { username: req.body.username } })
+        const validPassword = await userData.checkPassword(req.body.password);
+        //delete later
+        if (!validPassword) {
+            res
+                .status(400)
+                .json({ message: 'Incorrect password, please try again' });
+            return;
+        }
 
-        req.session.reload(() => {
+        req.session.save(() => {
             console.log(userData)
             req.session.user_id = userData.id;
             req.session.logged_in = true;
@@ -33,7 +41,7 @@ router.post('/login', async (req, res) => {
             res.status(200).json(userData)
         })
     } catch (err) {
-        console.log(err) 
+        console.log(err)
         console.log(req)
         res.status(400).json(err);
     }
@@ -79,7 +87,7 @@ router.post('/post', async (req, res) => {
             res.status(200).json(Post);
         })
     } catch (err) {
-        console.log(err) 
+        console.log(err)
         console.log(req)
         res.status(400).json(err);
     }
@@ -96,7 +104,7 @@ router.post('/comment', async (req, res) => {
             res.status(200).json(Post);
         })
     } catch (err) {
-        console.log(err) 
+        console.log(err)
         console.log(req)
         res.status(400).json(err);
     }
