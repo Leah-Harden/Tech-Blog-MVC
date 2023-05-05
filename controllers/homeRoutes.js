@@ -94,7 +94,7 @@ router.get('/project/:id', async (req, res) => {
         const post = postData.get({ plain: true });
         const userData = await User.findByPk(req.session.user_id);;
         const users = userData.get({ plain: true });
-        const commentData = await Comment.findAll({where : {Post_id : req.params.id}});
+        const commentData = await Comment.findAll({where : {Post_id : postData.id}});
         console.log(commentData)
         const comments = commentData.map((comment) => comment.get({ plain: true }));
         res.render('project', {
