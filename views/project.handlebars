@@ -5,10 +5,10 @@
         <h2 class="RobotoMono postUsername">{{post.user.username}}:</h2>
         <p class=" RobotoMono postBody">{{post.body}}</p>
         <div>
-            {{#each comment}}
+            {{#each comments as |comment| }}
             <div class="RobotoMono postComment">
                 <h2 class="RobotoMono commentData">{{comment.date}}</h2>
-                <h2 class="RobotoMono commentUsername">{{comment.user}}</h2>
+                <h2 class="RobotoMono commentUsername">{{comment.user.username}}</h2>
                 <hr class="commentHr">
                 <p>
                     {{comment.body}}
@@ -16,7 +16,7 @@
             </div>
             <form>
             {{/each}}
-
+{{!--  --}}
                 <textarea class="RobotoMono postComment commentInput"></textarea>
                 <button class="RobotoMono commentBtn">Comment</button>
             </form>

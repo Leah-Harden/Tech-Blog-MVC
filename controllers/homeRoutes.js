@@ -2,6 +2,7 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { User } = require('../models');
 const { Post } = require('../models');
+const { Comment } = require('../models');
 
 //localhost 3001 nothing
 router.get('/', async (req, res) => {
@@ -93,10 +94,14 @@ router.get('/project/:id', async (req, res) => {
         const post = postData.get({ plain: true });
         const userData = await User.findByPk(req.session.user_id);;
         const users = userData.get({ plain: true });
+        const commentData = await Comment.findAll({where : {Post_id : req.params.id}});
+        console.log(commentData)
+        const comments = commentData.map((comment) => comment.get({ plain: true }));
         res.render('project', {
             logged_in: req.session.logged_in,
             post,
-            users
+            users,
+            comments
         });
     } catch (err) {
         console.log(err)
