@@ -82,7 +82,6 @@ router.post('/post', async (req, res) => {
 
         const postData = await Post.create(req.body)
         req.session.reload(() => {
-            req.session.user_id = postData.id;
             req.session.logged_in = true;
             console.log(Post)
             res.status(200).json(Post);

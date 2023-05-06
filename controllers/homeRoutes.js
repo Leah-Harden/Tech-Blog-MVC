@@ -70,12 +70,15 @@ router.get('/home', withAuth, async (req, res) => {
         const userData = await User.findByPk(req.session.user_id);
         const users = userData.get({ plain: true });
         const posts = postData.map((post) => post.get({ plain: true }));
-        function usersCheck(post) {
-            if (post.user_id = users.id) {
-                return post
-            }
-        }
-        const result = posts.filter(usersCheck)
+
+        
+        // function usersCheck(result) {
+        //     if (result.user_id = users.id) {
+        //         return result
+        //     }
+        // }
+        
+        const result = posts.filter( posts => posts.user_id = users.id)
         
         res.render('home', {
             result,
