@@ -39,8 +39,22 @@ Post.init({
         freezeTableName: true,
         underscored: true,
         modelName: 'Post'
-    }
+    },
+    // {
 
+    //     hooks: {
+    //         // set up beforeCreate lifecycle "hook" functionality
+    //         beforeCreate: async (dateData) => {
+    //             dateData.date = await new Date();
+    //             return dateData;
+    //         },
+
+    //         beforeCreate: async (userData) => {
+    //             userData.user_id = await users.username
+    //             return userData;
+    //         },
+    //     }
+    // }
 )
 
 module.exports = Post;

@@ -79,9 +79,10 @@ router.post('/logout', (req, res) => {
 
 router.post('/post', async (req, res) => {
     try {
-        const userData = await Post.create(req.body)
+
+        const postData = await Post.create(req.body)
         req.session.reload(() => {
-            req.session.user_id = userData.id;
+            req.session.user_id = postData.id;
             req.session.logged_in = true;
             console.log(Post)
             res.status(200).json(Post);

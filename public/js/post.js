@@ -8,15 +8,16 @@ const newFormHandler = async function (event) {
     const title = document.querySelector('input[name="post-title"]').value;
     const user = document.querySelector('h2[name="navUser"]').innerHTML;
     const body = document.querySelector('textarea[name="post-body"]').value;
-    console.log(title,user,body)
-    savePost({title:title, user:user, body:body}).then(() => {
-        console.log('done')
-    createPost({title:title, user:user, body:body})
+    const date = new Date();
 
-    })
+
+    console.log(title,user,body, date)
+    savePost({title:title, user:user, body:body, date:date})
+    // .then(() => {
+    //     console.log('done')
+    // createPost({title:title, user:user, body:body})
+    // })
 };
-
-
 
 
 const savePost = (post) => {
