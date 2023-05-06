@@ -3,14 +3,16 @@
 
 <div class="postCenter">
     <div class="post">
-        <h2 class=" RobotoMono postTitle" href="/project/{{post.id}}" >{{post.title}}</h2>
+        <h2 class=" RobotoMono postTitle">{{post.title}}</h2>
         <h2 class="RobotoMono postUsername">{{post.date}}</h2>
-        <h2 class="RobotoMono postUsername">{{post.user.username}}</h2>
+        <h2 class="RobotoMono postUsername">{{post.user.username}}:</h2>
+        <p class=" RobotoMono postBody">{{post.body}}</p>
     </div>
+</div>
 </div>
 
 {{/ifeq}}
-{{/each}}
+{{/each}}F
 
 
 <div class="centerHome" id="centerHome">
@@ -19,7 +21,8 @@
         <form class="homeForm addPost">
             <div class="homeDiv flexcol">
                 <input type="text" class="RobotoMono homeTitle" name="post-title" value="Your Title..."></input>
-                <textarea class=" RobotoMono homeTestarea" name="post-body" rows="10" cols="70" value="So here the thing..."></textarea>
+                <textarea class=" RobotoMono homeTestarea" name="post-body" rows="10" cols="70"
+                    value="So here the thing..."></textarea>
             </div>
 
             <button type="submit" class="plusBtn ">+</button>
