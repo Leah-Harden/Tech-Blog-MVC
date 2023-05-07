@@ -65,20 +65,10 @@ router.get('/home', withAuth, async (req, res) => {
                 },
             ],
         });
-        // Serialize data so the template can read it
-
         const userData = await User.findByPk(req.session.user_id);
         const users = userData.get({ plain: true });
         const posts = postData.map((post) => post.get({ plain: true }));
-
-        
-        // function usersCheck(result) {
-        //     if (result.user_id = users.id) {
-        //         return result
-        //     }
-        // }
-        
-        const result = posts.filter( posts => posts.user_id = users.id)
+        const result = posts.filter( post => post.user_id == users.id)
         
         res.render('home', {
             result,
@@ -104,9 +94,12 @@ router.get('/project/:id', async (req, res) => {
         const post = postData.get({ plain: true });
         const userData = await User.findByPk(req.session.user_id);;
         const users = userData.get({ plain: true });
-        const commentData = await Comment.findAll({ where: { post_id: req.params.id } });
+        
+        
+        const commentData = await Comment.findAll();
+        const commentsChecked = commentData.filter( comment => comment.user_id == post.id);
+        const comments = commentsChecked.map((comment) => comment.get({ plain: true }));
         console.log(commentData)
-        const comments = commentData.map((comment) => comment.get({ plain: true }));
         res.render('project', {
             logged_in: req.session.logged_in,
             post,

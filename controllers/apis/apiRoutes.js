@@ -52,8 +52,8 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
     try {
         const userData = await User.create(req.body)
-        console.log(userData)
         req.session.save(() => {
+            console.log(User)
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             res.status(200).json(userData)
@@ -96,12 +96,11 @@ router.post('/post', async (req, res) => {
 
 router.post('/comment', async (req, res) => {
     try {
-        const userData = await Comment.create(req.body)
+        const commentData = await Comment.create(req.body)
         req.session.reload(() => {
-            req.session.user_id = userData.id;
             req.session.logged_in = true;
-            console.log(Post)
-            res.status(200).json(Post);
+            console.log(Comment)
+            res.status(200).json(Comment);
         })
     } catch (err) {
         console.log(err)

@@ -1,8 +1,5 @@
 
 
-const centerHome = document.querySelector('#centerHome')
-
-
 const newFormHandler = async function (event) {
     event.preventDefault();
     const title = document.querySelector('input[name="post-title"]').value;
@@ -19,7 +16,7 @@ const newFormHandler = async function (event) {
     // })
 };
 
-
+F
 const savePost = (post) => {
     return fetch('/api/post', {
             method: 'POST',
@@ -28,8 +25,11 @@ const savePost = (post) => {
             },
             body: JSON.stringify(post),
         })
-
+    
 }
+    
+    // Gets notes from the db and renders them to the sidebar
+document.querySelector('.addPost').addEventListener('submit', newFormHandler);
 
 
 // rip ;-;
@@ -106,6 +106,3 @@ const savePost = (post) => {
 
 
 
-
-// Gets notes from the db and renders them to the sidebar
-document.querySelector('.addPost').addEventListener('submit', newFormHandler);
