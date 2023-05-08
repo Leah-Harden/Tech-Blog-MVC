@@ -1,11 +1,11 @@
-{{#each result as |post| }}
 {{!-- {{#ifeq post.user_id, user.user_id}} --}}
+{{#each result as |post| }}
 
 <div class="postCenter">
     <div class="post">
         <h2 class=" RobotoMono postTitle">{{post.title}}</h2>
         <h2 class="RobotoMono postUsername">{{post.date}}</h2>
-        <h2 class="RobotoMono postUsername">{{post.user.username}}:</h2>
+        <h2 class="RobotoMono postUsername">{{post.User.username}}:</h2>
         <p class=" RobotoMono postBody">{{post.body}}</p>
     </div>
 </div>
